@@ -21,10 +21,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          start: test:e2e 
           record: true
           parallel: true
-          group: 'Actions example'
         env:
           # pass the Dashboard record key as an environment variable
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
