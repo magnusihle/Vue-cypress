@@ -13,15 +13,15 @@ jobs:
         # of the current job in parallel
         machines: [1, 2, 3]
     steps:
-      - uses: actions/checkout@v1
-      - name: Checkout
-        run: npm run test:e2e
+      - name: Checkout 
+        uses: actions/checkout@v1
 
       # because of "record" and "parallel" parameters
       # these machines will load balance all found tests among themselves
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
+          start: test:e2e 
           record: true
           parallel: true
           group: 'Actions example'
